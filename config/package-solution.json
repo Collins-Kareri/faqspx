@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "faqdan-client-side-solution",
+    "id": "f62e077f-82f8-4275-862d-0ab1f8977a1b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.19.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "FAQDAN description"
+      },
+      "longDescription": {
+        "default": "FAQDAN description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "faqdan Feature",
+        "description": "The feature that activates elements of the faqdan solution.",
+        "id": "e5c533f2-5be0-4d4f-b879-03030ff0ff73",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/faqdan.sppkg"
+  }
+}
