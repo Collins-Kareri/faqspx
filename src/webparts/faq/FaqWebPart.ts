@@ -15,38 +15,38 @@ import { IFaqProps } from './components/IFaqProps';
 
 export interface IFaqWebPartProps {
   description: string;
-  documentTitle:string;
-  currentUserDisplayName:string;
-  storageList:string;
-  acknowledgementLabel:string;
-  acknowledgementMessage:string;
-  readMessage:string;
-  themeVariant:IReadonlyTheme|undefined,
-  configured:boolean;
-  context:WebPartContext;
-  spContext:SPFI
+  documentTitle: string;
+  currentUserDisplayName: string;
+  storageList: string;
+  acknowledgementLabel: string;
+  acknowledgementMessage: string;
+  readMessage: string;
+  themeVariant: IReadonlyTheme | undefined,
+  configured: boolean;
+  context: WebPartContext;
+  spContext: SPFI
 }
 
 export default class FaqWebPart extends BaseClientSideWebPart<IFaqWebPartProps> {
 
- // private _isDarkTheme: boolean = false;
- // private _environmentMessage: string = '';
- 
+  // private _isDarkTheme: boolean = false;
+  // private _environmentMessage: string = '';
+
   public render(): void {
     const sp = spfi().using(SPFx(this.context));
     const element: React.ReactElement<IFaqProps> = React.createElement(
       Faq,
       {
-        documentTitle:this.properties.documentTitle,
-        currentUserDisplayName:this.context.pageContext.user.displayName,
-        storageList:this.properties.storageList,
-        acknowledgementLabel:this.properties.acknowledgementLabel,
-        acknowledgementMessage:this.properties.acknowledgementMessage,
-        readMessage:this.properties.readMessage,
-        themeVariant:this.properties.themeVariant,
-        configured:this.properties.storageList?this.properties.storageList!=='':false,
-        context:this.context,
-        spContext:sp
+        documentTitle: this.properties.documentTitle,
+        currentUserDisplayName: this.context.pageContext.user.displayName,
+        storageList: this.properties.storageList,
+        acknowledgementLabel: this.properties.acknowledgementLabel,
+        acknowledgementMessage: this.properties.acknowledgementMessage,
+        readMessage: this.properties.readMessage,
+        themeVariant: this.properties.themeVariant,
+        configured: this.properties.storageList ? this.properties.storageList !== '' : false,
+        context: this.context,
+        spContext: sp
 
 
       }
@@ -57,7 +57,7 @@ export default class FaqWebPart extends BaseClientSideWebPart<IFaqWebPartProps> 
 
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
-   //   this._environmentMessage = message;
+      //   this._environmentMessage = message;
     });
   }
 
@@ -95,7 +95,7 @@ export default class FaqWebPart extends BaseClientSideWebPart<IFaqWebPartProps> 
       return;
     }
 
-   // this._isDarkTheme = !!currentTheme.isInverted;
+    // this._isDarkTheme = !!currentTheme.isInverted;
     const {
       semanticColors
     } = currentTheme;
@@ -105,7 +105,6 @@ export default class FaqWebPart extends BaseClientSideWebPart<IFaqWebPartProps> 
       this.domElement.style.setProperty('--link', semanticColors.link || null);
       this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered || null);
     }
-
   }
 
   protected onDispose(): void {
